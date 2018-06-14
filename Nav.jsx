@@ -128,7 +128,7 @@ const Title = styled.div`
 
 const Ul = styled.ul`
   display: flex;
-  width: 50%;
+  width: 60%;
   justify-content: space-around;
   align-items: flex-start;
   list-style-type: none;
@@ -202,10 +202,6 @@ const Button3 = styled.button`
   margin-top: -3px;
 `
 
-const Hidden = styled.div`
-  position: relative;
-`
-
 const DivBorder = styled.div`
   color: #d22030;
   height: 4px;
@@ -253,10 +249,10 @@ class Nav extends React.Component {
           <div key={item.title}>
             <Li onMouseOver={this.handleMouseOver}>{item.title}</Li>
             {this.state[item.title.toLowerCase()] &&
-              <Hidden>
+              <div>
                 <DivBorder />
                 <DropdownContent handleMouseLeave={this.handleMouseLeave} dropdownItems={{ subHeaders: item.subHeaders, misc: item.misc, categories: item.categories }} />
-              </Hidden>
+              </div>
             }
           </div>
         ))}
