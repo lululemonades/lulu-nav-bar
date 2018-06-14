@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 const Activities = (props) => (
   <ActivitiesDiv>
@@ -47,6 +48,16 @@ class DropdownContent extends React.Component {
     )
   }
 }
+
+const Div = styled.div`
+  position: fixed;
+  width: 100%;
+  background-color: #fafafa;
+  z-index: 1;
+  top: 70px;
+  left: 0;
+  height: auto;
+`
 
 const ActivitiesUl = styled.ul`
   display: flex;
@@ -115,16 +126,6 @@ const Title = styled.div`
   transform: scale(1, 0.9);
 `
 
-const Div = styled.div`
-  position: fixed;
-  width: 100%;
-  background-color: #fafafa;
-  z-index: 7;
-  top: 70px;
-  left: 0;
-  height: auto;
-`
-
 const Ul = styled.ul`
   display: flex;
   width: 50%;
@@ -158,7 +159,7 @@ const Container = styled.div`
   left: 0;
   width: 100%;
   background-color: #fafafa;
-  z-index: 8;
+  z-index: 2;
 `
 
 const Section = styled.section`
@@ -201,8 +202,8 @@ const Button3 = styled.button`
   margin-top: -3px;
 `
 
-const Header = styled.div`
-  position relative;
+const Hidden = styled.div`
+  position: relative;
 `
 
 const DivBorder = styled.div`
@@ -211,8 +212,6 @@ const DivBorder = styled.div`
   width: inherit;
   background-color: #d22030;
   transition: 0.5s;
-  top: inherit;
-  left: inherit;
 `
 
 class Nav extends React.Component {
@@ -251,15 +250,15 @@ class Nav extends React.Component {
             </svg>
           </li>
         {this.props.menuItems.map((item, index) => (
-          <Header key={item.title}>
+          <div key={item.title}>
             <Li onMouseOver={this.handleMouseOver}>{item.title}</Li>
             {this.state[item.title.toLowerCase()] &&
-              <div>
+              <Hidden>
                 <DivBorder />
                 <DropdownContent handleMouseLeave={this.handleMouseLeave} dropdownItems={{ subHeaders: item.subHeaders, misc: item.misc, categories: item.categories }} />
-              </div>
+              </Hidden>
             }
-          </Header>
+          </div>
         ))}
         </Ul>
         <Section>

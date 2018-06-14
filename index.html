@@ -5,6 +5,22 @@
     <link rel="icon" href="lemon-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
     <title></title>
+    <style>
+      .slide-enter {
+        left: -99px;
+      }
+      .slide-enter.slide-enter-active {
+        left: inherit;
+        transition: left 500ms ease-in;
+      }
+      .slide-leave {
+        left: inherit;
+      }
+      .slide-leave.slide-leave-active {
+        left: -99px;
+        transition: left 300ms ease-in;
+      }
+    </style>
   </head>
   <body>
     <div id="nav"></div>
