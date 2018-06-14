@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './Nav.jsx',
+  entry: ['./Nav.jsx', './styles.scss'],
   output: {
     filename: 'nav-module-bundle.js',
     path: __dirname,
