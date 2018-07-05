@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "react-dev": "webpack -d --watch"
   },
   "author": "",
@@ -25,9 +25,12 @@
   },
   "dependencies": {
     "express": "^4.16.3",
+    "express-http-proxy": "^1.2.0",
+    "node-sass": "^4.9.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-reveal": "^1.2.2",
+    "react-transition-group": "^1.2.1",
     "styled-components": "^3.3.2"
   }
 }
